@@ -41,22 +41,22 @@ const methods = {
     createFileIfNotExists("list");
   },
   "-add": function (data) {
-    if (data.trim() === "") {
+    if (!data || data.trim() === "") {
       console.log("you need to add a data to store");
     } else {
       addFileIfNotExists(data, "add");
     }
   },
   "-complete": function (data) {
-    if (data.trim() === "" || isNaN(data.trim())) {
-      console.log("Data is not a number");
+    if (!data || data.trim() === "" || isNaN(data.trim())) {
+      console.log("Data cannot be empty");
     } else {
       taskCompleted(Number(data.trim()), "complete");
     }
   },
   "-delete": function (data) {
-    if (data.trim() === "" || isNaN(data.trim())) {
-      console.log("Data is not a number");
+    if (!data || data.trim() === "" || isNaN(data.trim())) {
+      console.log("Data to delete must be a number and cannot be empty");
     } else {
       taskDeleted(Number(data.trim()), "delete");
     }
