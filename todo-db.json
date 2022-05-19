@@ -4,11 +4,7 @@
     "completed": false
   },
   {
-    "todo": "apple and banana",
-    "completed": false
-  },
-  {
     "todo": "apple and banana and cakes",
-    "completed": false
+    "completed": true
   }
 ]

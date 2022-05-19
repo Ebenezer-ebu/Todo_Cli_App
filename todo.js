@@ -28,12 +28,38 @@ const addFileIfNotExists = (data, flag) => {
   });
 };
 
+const taskCompleted = (data, flag) => {
+  readFromDb(dbPath, data, flag);
+};
+
+const taskDeleted = (data, flag) => {
+  readFromDb(dbPath, data, flag);
+};
+
 const methods = {
   "-list": function () {
     createFileIfNotExists("list");
   },
   "-add": function (data) {
-    addFileIfNotExists(data, "add");
+    if (data.trim() === "") {
+      console.log("you need to add a data to store");
+    } else {
+      addFileIfNotExists(data, "add");
+    }
+  },
+  "-complete": function (data) {
+    if (data.trim() === "" || isNaN(data.trim())) {
+      console.log("Data is not a number");
+    } else {
+      taskCompleted(Number(data.trim()), "complete");
+    }
+  },
+  "-delete": function (data) {
+    if (data.trim() === "" || isNaN(data.trim())) {
+      console.log("Data is not a number");
+    } else {
+      taskDeleted(Number(data.trim()), "delete");
+    }
   },
 };
 
@@ -42,7 +68,7 @@ function formulateTodo(arg) {
     methods[arg[0]]();
   } else {
     let rest = arg.slice(1).join(" ");
-    methods[arg[0]](rest);
+    methods[arg[0].toLowerCase()](rest);
   }
   return arg;
 }
