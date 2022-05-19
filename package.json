@@ -1,0 +1,12 @@
+{
+  "name": "todo-cli-app",
+  "version": "1.0.0",
+  "description": "Todo cli app",
+  "main": "todo.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ebenezer Ifezulike",
+  "license": "ISC"
+}
